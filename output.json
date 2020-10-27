@@ -1,0 +1,50 @@
+{
+    "room": {
+        "name": "Sala de Lapso",
+        "dimensions": {
+            "depth": 12.1,
+            "width": 7.1,
+            "height": 3.0
+        },
+        "elements": {
+            "door": {
+                "pos": 3,
+                "halfDepth": -2.5,
+                "width": 1.2,
+                "height": 2.2,
+                "frame": {
+                    "x": 0.08,
+                    "y": 0.03
+                }
+            },
+            "speaker": {
+                "pos": {
+                    "x": 2,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotation": 0
+            }
+        },
+        "spot": {
+            "pos": {
+                "x": -5,
+                "y": 1,
+                "z": 2
+            },
+            "rot": {
+                "x": 50,
+                "y": -60,
+                "z": 0
+            }
+        },
+        "camera": {
+            "pos": {
+                "x": -3,
+                "y": 0,
+                "z": 1.5
+            },
+            "rot": -90
+        }
+    }
+}
