@@ -1,12 +1,12 @@
 room:
   name: 'Sala de Lapso'
   dimensions:
-    depth: 12.10
-    width: 7.10
-    height: 3.00
+    depth: 12.10 m
+    width: 7.10 m
+    height: 3.00 m
   elements:
     door: 
-      pos: 3
+      position: 3
       halfDepth: -2.5
       width: 1.20
       height: 2.20
@@ -18,19 +18,19 @@ room:
           x: 2
           y: 0
           z: 0
-        rotation: 0 rad
+        rotation: 0 
   spot:
-    pos:
+    position:
       x: -5 
       y: 1 
       z: 2
-    rot:
-      x: 50 rad
-      y: -60 rad
+    rotation:
+      x: 50 deg
+      y: -60 deg
       z: 0 
   camera:
-    pos:
+    position:
       x: -3 
       y: 0 
       z: 1.5 
-    rot: -90 rad
+    rotation: -90 deg 
