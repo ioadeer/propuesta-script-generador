@@ -18,19 +18,19 @@ room:
           x: 2
           y: 0
           z: 0
-        rotation: 0
+        rotation: 0 rad
   spot:
     pos:
-      x: -5
-      y: 1
+      x: -5 
+      y: 1 
       z: 2
     rot:
-      x: 50
-      y: -60
-      z: 0
+      x: 50 rad
+      y: -60 rad
+      z: 0 
   camera:
     pos:
-      x: -3
-      y: 0
-      z: 1.5
-    rot: -90
+      x: -3 
+      y: 0 
+      z: 1.5 
+    rot: -90 rad
