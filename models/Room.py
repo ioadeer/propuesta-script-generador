@@ -21,9 +21,13 @@ class Room:
             elif(element == 'skirting'):
                 self.skirting = Skirting(self.wall_thickness,elements[element]) 
 
+        self.spot = Spot(desc['spot'])
+        self.camera = Camera(desc['camera'])
+
     def __str__(self):
-        return(f'Room name: { self.name }.\n'
-               'Dimensions:\n' 
+        return('\nRoom:\n'
+              f' Name: { self.name }.\n'
+               ' Dimensions:\n' 
               f'\tdepth:          { self.depth  }\n'  
               f'\twidth:          { self.width  }\n'  
               f'\theight:         { self.height }\n'
@@ -31,10 +35,21 @@ class Room:
               )
 
     def dump_room_info(self):
-        print(self.__str__())
-        print(self.speaker.__str__())
-        print(self.door.__str__())
-        print(self.skirting.__str__())
+        roomString = self.__str__()
+        speakerString = self.speaker.__str__()
+        doorString = self.door.__str__()
+        skirtingString = self.skirting.__str__()
+        spotString = self.spot.__str__()
+        cameraString = self.camera.__str__()
+        room_info = (
+                    f'{roomString}'
+                    f'{speakerString} ' 
+                    f'{doorString}'
+                    f'{skirtingString}'
+                    f'{spotString}'
+                    f'{cameraString}'
+                    )
+        return(room_info)
 
 class Speaker:                
     def __init__(self, desc = {}):
@@ -46,11 +61,11 @@ class Speaker:
         self.rotation = desc.get('rotation')
 
     def __str__(self):
-        return('Speaker:\n'
+        return(' Speaker:\n'
                f'\tPos x:    {self.x}\n'
                f'\tPos y:    {self.y}\n'
                f'\tPos z:    {self.z}\n'
-               f'\tRotation: {self.rotation}')
+               f'\tRotation: {self.rotation}\n')
 class Door:
     def __init__(self, desc = {}):
         (
@@ -68,7 +83,7 @@ class Door:
               f'\tPos/2:    {self.halfDepth}\n' 
               f'\tWidth:    {self.width}    \n' 
               f'\tHeight:   {self.height}   \n'
-              f'\t{ frame_string }'
+              f'\t{ frame_string }\n'
               )
 
 class Frame:
@@ -77,7 +92,7 @@ class Frame:
     def __str__(self):
         return('Frame:\n'
               f'\t X:    {self.x}    \n' 
-              f'\t Y:    {self.y}     ' )
+              f'\t Y:    {self.y}    \n' )
 
 class Skirting:
     def __init__(self, offset, desc = {}):
@@ -88,6 +103,49 @@ class Skirting:
         self.height += offset 
 
     def __str__(self):
-        return('Skirting:\n'
+        return(' Skirting:\n'
               f'\tHeight:   {self.height} \n' 
-              f'\tThickness:{self.thickness}' )
+              f'\tThickness:{self.thickness}\n' )
+
+class Spot:
+    def __init__(self, desc = {}):
+        (
+        self.posX,
+        self.posY,
+        self.posZ
+        ) = itemgetter('x','y','z')(desc['position'])
+        (
+        self.rotX,
+        self.rotY,
+        self.rotZ
+        ) = itemgetter('x','y','z')(desc['rotation'])
+
+    def __str__(self):
+        return(' Spot\n'
+                '\tPosition:\n'
+              f'\tX:    {self.posX}\n'
+              f'\tY:    {self.posY}\n'
+              f'\tZ:    {self.posZ}\n'
+               '\tRotation\n'
+              f'\tX:    {self.rotX}\n'
+              f'\tY:    {self.rotY}\n'
+              f'\tZ:    {self.rotZ}\n'
+              )
+
+class Camera:
+    def __init__(self, desc = {}):
+        (
+        self.posX,
+        self.posY,
+        self.posZ
+        ) = itemgetter('x','y','z')(desc['position'])
+        self.rotation = desc.get('rotation')
+
+    def __str__(self):
+        return(' Camera\n'
+                '\tPosition:\n'
+              f'\tX:    {self.posX}\n'
+              f'\tY:    {self.posY}\n'
+              f'\tZ:    {self.posZ}\n'
+              f'\tRotation:\n\t{self.rotation}\n'
+              )
