@@ -1,7 +1,40 @@
 from operator import itemgetter
 
 class Room:
+    """
+    A class to represent a room.
+
+    Attributes
+    ----------
+    depth: float
+        room's depth in meters
+    width: float
+        room's width in meters
+    height:
+        room's height in meters
+    wall_thickness:
+        room's walls thickness in meters
+    speaker: type Speaker
+        represents a speaker placed in the room
+    door: type Speaker
+        represents a door placed in the room
+    skirting: type Speaker
+        represents the room's skirting
+    spot: type Spot
+        represents a spot light placed in the room
+    camera: type Camera
+        represents a camera for Blender present in the room.
+
+    """
     def __init__(self, desc = {}):
+        """
+        Constructs all the necessary attributes for the room object.
+        
+        Paramaeters
+        -----------
+            desc: dict
+                dictionary representing room's information
+        """
         self.name = desc['name']
         (
         self.depth, 
@@ -25,6 +58,9 @@ class Room:
         self.camera = Camera(desc['camera'])
 
     def __str__(self):
+        """
+        Returns string with room object info.
+        """
         return('\nRoom:\n'
               f' Name: { self.name }.\n'
                ' Dimensions:\n' 
@@ -35,6 +71,9 @@ class Room:
               )
 
     def dump_room_info(self):
+        """
+        Returns string with all room's info.
+        """
         roomString = self.__str__()
         speakerString = self.speaker.__str__()
         doorString = self.door.__str__()
