@@ -1,5 +1,7 @@
 from operator import itemgetter
 
+from .Speaker import Speaker
+
 class Room:
     """
     A class to represent a room.
@@ -16,9 +18,9 @@ class Room:
         room's walls thickness in meters
     speaker: type Speaker
         represents a speaker placed in the room
-    door: type Speaker
+    door: type Door 
         represents a door placed in the room
-    skirting: type Speaker
+    skirting: type Skirting 
         represents the room's skirting
     spot: type Spot
         represents a spot light placed in the room
@@ -90,21 +92,6 @@ class Room:
                     )
         return(room_info)
 
-class Speaker:                
-    def __init__(self, desc = {}):
-        (
-        self.x,
-        self.y,
-        self.z,
-        ) = itemgetter('x','y','z')(desc['position']) 
-        self.rotation = desc.get('rotation')
-
-    def __str__(self):
-        return(' Speaker:\n'
-               f'\tPos x:    {self.x}\n'
-               f'\tPos y:    {self.y}\n'
-               f'\tPos z:    {self.z}\n'
-               f'\tRotation: {self.rotation}\n')
 class Door:
     def __init__(self, desc = {}):
         (

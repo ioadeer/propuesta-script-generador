@@ -2,6 +2,8 @@
 
 #import yaml
 import json
+import os
+from pathlib import Path
 from models.Room import Room
 
 with open('input.json') as json_file:
@@ -27,6 +29,9 @@ roomString = room.dump_room_info()
 print(f'{roomString}')
 
 print(room.spot.posX)
+aPath = Path(os.path.realpath(__file__)).parents[0]
+print(aPath)
+print(os.path.realpath(__file__))
 
 with open('output.json', 'w') as json_file:
     try:
