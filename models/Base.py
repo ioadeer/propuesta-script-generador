@@ -1,27 +1,27 @@
 from operator import itemgetter
 
-class Skirting:
+class Base:
     """
-    A class to represent a skirting.
+    A class to represent a room base.
 
     Attributes
     ----------
     height: float
-        room skirting's height in meters (Note that to the original value an offset that
+        room base's height in meters (Note that to the original value an offset that
         represents the room's wall thicknness is added)
     thickness: float
-        room skirting's thickness 
+        room base's thickness 
 
     """
     def __init__(self, offset, desc = {}):
         """
-        Constructs all the necessary attributes for the skirting 
+        Constructs all the necessary attributes for the base 
         object.
         
         Parameters
         -----------
             desc: dict
-                dictionary representing skirting's information
+                dictionary representing base's information
         """
         (
         self.height, 
@@ -33,7 +33,7 @@ class Skirting:
         """
         Returns string with Speaker object info.
         """
-        return(' Skirting:\n'
+        return(' Base:\n'
               f'\tHeight:   {self.height} \n' 
               f'\tThickness:{self.thickness}\n' )
 

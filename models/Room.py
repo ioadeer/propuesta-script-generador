@@ -2,7 +2,7 @@ from operator import itemgetter
 
 from .Speaker import Speaker
 from .Door import Door
-from .Skirting import Skirting
+from .Base import Base 
 from .Spot import Spot
 from .Camera import Camera
 
@@ -16,15 +16,15 @@ class Room:
         room's depth in meters
     width: float
         room's width in meters
-    height:
+    height: float
         room's height in meters
-    wall_thickness:
+    wall_thickness: float
         room's walls thickness in meters
     speaker: type Speaker
         represents a speaker placed in the room
     door: type Door 
         represents a door placed in the room
-    skirting: type Skirting 
+    base: type Base 
         represents the room's skirting
     spot: type Spot
         represents a spot light placed in the room
@@ -57,8 +57,8 @@ class Room:
                 self.speaker = Speaker(elements[element])
             elif(element == 'door'):
                 self.door = Door(elements[element])
-            elif(element == 'skirting'):
-                self.skirting = Skirting(self.wall_thickness,elements[element]) 
+            elif(element == 'base'):
+                self.base= Base(self.wall_thickness,elements[element]) 
 
         self.spot = Spot(desc['spot'])
         self.camera = Camera(desc['camera'])
@@ -83,14 +83,14 @@ class Room:
         roomString = self.__str__()
         speakerString = self.speaker.__str__()
         doorString = self.door.__str__()
-        skirtingString = self.skirting.__str__()
+        baseString = self.base.__str__()
         spotString = self.spot.__str__()
         cameraString = self.camera.__str__()
         room_info = (
                     f'{roomString}'
                     f'{speakerString} ' 
                     f'{doorString}'
-                    f'{skirtingString}'
+                    f'{baseString}'
                     f'{spotString}'
                     f'{cameraString}'
                     )

@@ -8,14 +8,15 @@ class Door:
 
     Attributes
     ----------
+    wall_index: int 
+        wall onto which the door is added.
+        values 0 to 3
     position: float
-        door's position in meters
-    halfDepth: float
-        preguntar que es
+        door position in meters
     width: float
-        door's width in meters
+        door width in meters
     height: float
-        door's height in meters
+        door height in meters
     frame: type Frame 
         represent door frame
     """
@@ -27,14 +28,14 @@ class Door:
         Parameters
         -----------
             desc: dict
-                dictionary representing Doors's information
+                dictionary representing Door's information
         """
         (
+        self.wall_index,
         self.position,
-        self.halfDepth,
         self.width,
         self.height
-        ) = itemgetter('position','halfDepth','width','height')(desc)
+        ) = itemgetter('wall_index','position','width','height')(desc)
         self.frame = Frame(desc['frame'])
 
     def __str__(self):
@@ -43,9 +44,9 @@ class Door:
         """
         frame_string = self.frame.__str__()
         return('Door:\n'
-              f'\tPosition: {self.position} \n' 
-              f'\tPos/2:    {self.halfDepth}\n' 
-              f'\tWidth:    {self.width}    \n' 
-              f'\tHeight:   {self.height}   \n'
+              f'\tWall index: {self.wall_index} \n' 
+              f'\tPosition:   {self.position}\n' 
+              f'\tWidth:      {self.width}    \n' 
+              f'\tHeight:     {self.height}   \n'
               f'\t{ frame_string }\n'
               )

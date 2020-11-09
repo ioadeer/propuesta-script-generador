@@ -6,10 +6,10 @@ class Frame:
 
     Attributes
     ----------
-    x: float
-        door frame's x size in meters
-    y: float
-        door frame's y size in meters
+    width: float
+        door width in meters 
+    thickness: float
+        door thickness in meters
     """
     def __init__(self, desc = {}):
         """
@@ -21,11 +21,11 @@ class Frame:
             desc: dict
                 dictionary representing Frame's information
         """
-        self.x, self.y = itemgetter('x','y')(desc)
+        self.width, self.thickness= itemgetter('width','thickness')(desc)
     def __str__(self):
         """
         Returns string with Door object info.
         """
         return('Frame:\n'
-              f'\t X:    {self.x}    \n' 
-              f'\t Y:    {self.y}    \n' )
+              f'\t Width:    {self.width}    \n' 
+              f'\t Thickness:{self.thickness}\n' )

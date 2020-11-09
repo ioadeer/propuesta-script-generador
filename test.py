@@ -15,10 +15,10 @@ with open('input.json') as json_file:
 
 room = Room(input['room'])
 
-room.door.frame.x
+room.door.frame.width
 print(f'Camera x position value {room.camera.x}')
 
-print(f'{room.door.halfDepth}')
+print(f'{room.door.position}')
 room_surface = room.depth * room.width
 
 #print(f'{room_surface}')
