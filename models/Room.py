@@ -1,6 +1,10 @@
 from operator import itemgetter
 
 from .Speaker import Speaker
+from .Door import Door
+from .Skirting import Skirting
+from .Spot import Spot
+from .Camera import Camera
 
 class Room:
     """
@@ -32,7 +36,7 @@ class Room:
         """
         Constructs all the necessary attributes for the room object.
         
-        Paramaeters
+        Parameters
         -----------
             desc: dict
                 dictionary representing room's information
@@ -61,7 +65,7 @@ class Room:
 
     def __str__(self):
         """
-        Returns string with room object info.
+        Returns string with Room object info.
         """
         return('\nRoom:\n'
               f' Name: { self.name }.\n'
@@ -92,86 +96,4 @@ class Room:
                     )
         return(room_info)
 
-class Door:
-    def __init__(self, desc = {}):
-        (
-        self.position,
-        self.halfDepth,
-        self.width,
-        self.height
-        ) = itemgetter('position','halfDepth','width','height')(desc)
-        self.frame = Frame(desc['frame'])
 
-    def __str__(self):
-        frame_string = self.frame.__str__()
-        return('Door:\n'
-              f'\tPosition: {self.position} \n' 
-              f'\tPos/2:    {self.halfDepth}\n' 
-              f'\tWidth:    {self.width}    \n' 
-              f'\tHeight:   {self.height}   \n'
-              f'\t{ frame_string }\n'
-              )
-
-class Frame:
-    def __init__(self, desc = {}):
-        self.x, self.y = itemgetter('x','y')(desc)
-    def __str__(self):
-        return('Frame:\n'
-              f'\t X:    {self.x}    \n' 
-              f'\t Y:    {self.y}    \n' )
-
-class Skirting:
-    def __init__(self, offset, desc = {}):
-        (
-        self.height, 
-        self.thickness,
-        ) = itemgetter('height', 'thickness')(desc) 
-        self.height += offset 
-
-    def __str__(self):
-        return(' Skirting:\n'
-              f'\tHeight:   {self.height} \n' 
-              f'\tThickness:{self.thickness}\n' )
-
-class Spot:
-    def __init__(self, desc = {}):
-        (
-        self.posX,
-        self.posY,
-        self.posZ
-        ) = itemgetter('x','y','z')(desc['position'])
-        (
-        self.rotX,
-        self.rotY,
-        self.rotZ
-        ) = itemgetter('x','y','z')(desc['rotation'])
-
-    def __str__(self):
-        return(' Spot\n'
-                '\tPosition:\n'
-              f'\tX:    {self.posX}\n'
-              f'\tY:    {self.posY}\n'
-              f'\tZ:    {self.posZ}\n'
-               '\tRotation\n'
-              f'\tX:    {self.rotX}\n'
-              f'\tY:    {self.rotY}\n'
-              f'\tZ:    {self.rotZ}\n'
-              )
-
-class Camera:
-    def __init__(self, desc = {}):
-        (
-        self.posX,
-        self.posY,
-        self.posZ
-        ) = itemgetter('x','y','z')(desc['position'])
-        self.rotation = desc.get('rotation')
-
-    def __str__(self):
-        return(' Camera\n'
-                '\tPosition:\n'
-              f'\tX:    {self.posX}\n'
-              f'\tY:    {self.posY}\n'
-              f'\tZ:    {self.posZ}\n'
-              f'\tRotation:\n\t{self.rotation}\n'
-              )

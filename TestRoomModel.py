@@ -6,13 +6,13 @@ Room destructuring tests call from this dir
 python3 TestRoomModel.py
 """
 
-from Room import Room 
-from Room import Speaker
-from Room import Door
-from Room import Skirting
-from Room import Frame
-from Room import Spot
-from Room import Camera
+from models.Room import Room 
+from models.Speaker import Speaker
+from models.Door import Door
+from models.Skirting import Skirting
+from models.Frame import Frame
+from models.Spot import Spot
+from models.Camera import Camera
 
 class TestRoomModel(unittest.TestCase):
 
@@ -67,9 +67,9 @@ class TestRoomModel(unittest.TestCase):
         """
         Spot fields should equal input
         """
-        self.assertEqual(self.room.spot.posX, -5)
-        self.assertEqual(self.room.spot.posY, 1)
-        self.assertEqual(self.room.spot.posZ, 2)
+        self.assertEqual(self.room.spot.x, -5)
+        self.assertEqual(self.room.spot.y, 1)
+        self.assertEqual(self.room.spot.z, 2)
         self.assertEqual(self.room.spot.rotX, 50)
         self.assertEqual(self.room.spot.rotY, -60)
         self.assertEqual(self.room.spot.rotZ, 0)
@@ -78,9 +78,9 @@ class TestRoomModel(unittest.TestCase):
         """
         Camera fields should equal input
         """
-        self.assertEqual(self.room.camera.posX, -3)
-        self.assertEqual(self.room.camera.posY, 0)
-        self.assertEqual(self.room.camera.posZ, 1.5)
+        self.assertEqual(self.room.camera.x, -3)
+        self.assertEqual(self.room.camera.y, 0)
+        self.assertEqual(self.room.camera.z, 1.5)
         self.assertEqual(self.room.camera.rotation, -90)
 
     def test_room_camera(self):

@@ -16,19 +16,21 @@ with open('input.json') as json_file:
 room = Room(input['room'])
 
 room.door.frame.x
-room.camera.posX
+print(f'Camera x position value {room.camera.x}')
 
 print(f'{room.door.halfDepth}')
 room_surface = room.depth * room.width
 
-print(f'{room_surface}')
+#print(f'{room_surface}')
+print('Room docstring help \n')
 
-
+help(room)
+#print(f'Room init method help string: {}')
 roomString = room.dump_room_info()
 
 print(f'{roomString}')
 
-print(room.spot.posX)
+print(room.spot.x)
 aPath = Path(os.path.realpath(__file__)).parents[0]
 print(aPath)
 print(os.path.realpath(__file__))
